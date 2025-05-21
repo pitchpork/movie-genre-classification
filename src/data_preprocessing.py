@@ -13,6 +13,8 @@ OTHER_THRESHOLD = 500
 RANDOM_SEED = 2025
 VAL_SPLIT = 0.1
 
+os.makedirs(PROCESSED_DIR, exist_ok=True)
+
 
 def load_data(file_path, has_genre=True):
     if has_genre:

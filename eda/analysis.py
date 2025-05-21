@@ -1,6 +1,10 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
+FIGURES_DIR = os.path.abspath("../figures/")
+
+os.makedirs(FIGURES_DIR, exist_ok=True)
 # Load the training file
 df = pd.read_csv(
     '../data/raw/train_data.txt',
@@ -28,7 +32,7 @@ plt.yticks(fontsize=10)
 plt.tight_layout()
 
 
-plt.savefig("../figures/genre_distribution.png", dpi=300, bbox_inches='tight')
+plt.savefig(os.path.join(FIGURES_DIR, "genre_distribution.png"), dpi=300, bbox_inches='tight')
 
 # Plot summary length distribution
 df['WordCount'] = df['Description'].str.split().apply(len)
@@ -43,6 +47,6 @@ plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tick_params(axis='both', which='major', labelsize=10)
 plt.tight_layout()
 
-plt.savefig("../figures/plot_length_distribution.png", dpi=300)
-print("Genre label distribution and plot summary length distribution charts saved to /figures/")
+plt.savefig(os.path.join(FIGURES_DIR, "plot_length_distribution.png"), dpi=300)
+print("Genre label distribution and plot summary length distribution charts saved to /figures/.")
 plt.close()
