@@ -9,8 +9,10 @@ from model_transformer import create_dataloader
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-MODEL_DIR = '../models/bert_classifier'
-DATA_PATH = '../data/processed/val_processed.csv'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_DIR = os.path.join(BASE_DIR, '..', 'models', 'bert_classifier')
+DATA_PATH = os.path.join(BASE_DIR, '..', 'data', 'processed', 'val_processed.csv')
 LABEL_MAP_PATH = os.path.join(MODEL_DIR, 'label_map.json')
 
 df_val = pd.read_csv(DATA_PATH)

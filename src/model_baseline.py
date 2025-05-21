@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
@@ -72,9 +73,10 @@ def evaluate_model(model, X, y):
 
 
 def main():
-    train_path = '../data/processed/train_processed.csv'
-    val_path = '../data/processed/val_processed.csv'
+    base_dir = os.path.dirname(os.path.abspath(__file__))
 
+    train_path = os.path.join(base_dir, '..', 'data', 'processed', 'train_processed.csv')
+    val_path = os.path.join(base_dir, '..', 'data', 'processed', 'val_processed.csv')
     X_train, y_train, X_val, y_val, vect = load_data_and_features(train_path, val_path)
 
     # Baselines

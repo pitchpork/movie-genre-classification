@@ -2,12 +2,15 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-FIGURES_DIR = os.path.abspath("../figures/")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FIGURES_DIR = os.path.abspath(os.path.join(BASE_DIR, '..', 'figures'))
+DATA_PATH = os.path.abspath(os.path.join(BASE_DIR, '..', 'data', 'raw', 'train_data.txt'))
 
 os.makedirs(FIGURES_DIR, exist_ok=True)
+
 # Load the training file
 df = pd.read_csv(
-    '../data/raw/train_data.txt',
+    DATA_PATH,
     sep=' ::: ',
     engine='python',
     names=['ID', 'Title', 'Genre', 'Description'],

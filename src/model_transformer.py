@@ -23,8 +23,9 @@ EPOCHS = 3
 LEARNING_RATE = 2e-5
 MAX_LEN = 256
 MODEL_NAME = 'bert-base-uncased'
-DATA_DIR = '../data/processed'
-MODEL_DIR = '../models/bert_classifier'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, '..', 'data', 'processed')
+MODEL_DIR = os.path.join(BASE_DIR, '..', 'models', 'bert_classifier')
 
 # Ensure output directory exists
 os.makedirs(MODEL_DIR, exist_ok=True)

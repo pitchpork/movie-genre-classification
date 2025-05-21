@@ -5,8 +5,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # File paths and constants
-DATA_DIR = os.path.abspath("../data/raw/")
-PROCESSED_DIR = os.path.abspath("../data/processed/")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.abspath(os.path.join(BASE_DIR, '..', 'data', 'raw'))
+PROCESSED_DIR = os.path.abspath(os.path.join(BASE_DIR, '..', 'data', 'processed'))
 TRAIN_FILE = os.path.join(DATA_DIR, "train_data.txt")
 TEST_FILE = os.path.join(DATA_DIR, "test_data.txt")
 OTHER_THRESHOLD = 500
